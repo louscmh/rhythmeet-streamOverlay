@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Unbounded";
+    src: url("../_shared_assets/fonts/Unbounded.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-Light";
+    src: url("../_shared_assets/fonts/Unbounded-Light.ttf");
+}
+
+#main {
+    font-size: 24px;
+    font-family: "Unbounded";
+    font-weight: normal;
+    color: white;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    /* background-color: grey; */
+}
+
+#beatmapDetails {
+    position:absolute;
+    top:35px;
+    left:240px;
+    width: 820px;
+    height:72px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: rgba(0,0,0,0.1); */
+}
+
+#beatmapSong, #beatmapMap {
+    display:flex;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#beatmapTitle {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+#diffText {
+    margin-left: 10px;
+}
+
+.light {
+    font-family: "Unbounded-Light";
+}
+
+.statText {
+    font-family: "Unbounded-Light";
+    margin-right:5px;
+}
+
+.statTextBold {
+    margin-right:10px;
+}
+
+.mapText {
+    font-size:0.75em;
+    margin-right:8px;
+}
+
+#pickID {
+    position:absolute;
+    top:35px;
+    left:1560px;
+    width: 130px;
+    height:72px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0,0,0,0.5); */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#beatmapStats {
+    position:absolute;
+    top:845px;
+    left:1270px;
+    width: 440px;
+    height:72px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0,0,0,0.1); */
+    font-size:0.75em;
+}
+
+#firstColumn, #secondColumn {
+    display:flex;
+    margin-block:2px;
+}
+
+#ss {
+    position:absolute;
+    top:0px;
+    z-index: -1;
+}
