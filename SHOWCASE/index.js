@@ -77,11 +77,12 @@ async function updateDetails(data) {
         } else if (mod == "DT") {
             // thanks schdewz
             memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(2);
-            let ar_ms = Math.max(Math.min(ar <= 5 ? 1800 - 120 * ar : 1200 - 150 * (ar - 5), 1800), 450) / speed;
-	        memoryAR = ar_ms > 1200 ? (1800 - ar_ms) / 120 : 5 + (1200 - ar_ms) / 150;
-            full = full/1.5;
-            min = Math.round(min*1.5);
-            max = Math.round(max*1.5);
+            let ar_ms = Math.max(Math.min(memoryAR <= 5 ? 1800 - 120 * memoryAR : 1200 - 150 * (memoryAR - 5), 1800), 450) / 1.5;
+            memoryAR = ar_ms > 1200 ? ((1800 - ar_ms) / 120).toFixed(2) : (5 + (1200 - ar_ms) / 150).toFixed(2);
+        
+            min = Math.round(min * 1.5);
+            max = Math.round(max * 1.5);
+        
             fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
         }
     } else if (beatmaps.includes(file)) {
@@ -96,15 +97,15 @@ async function updateDetails(data) {
         } else if (mod == "DT") {
             // thanks schdewz
             memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(2);
-            let ar_ms = Math.max(Math.min(ar <= 5 ? 1800 - 120 * ar : 1200 - 150 * (ar - 5), 1800), 450) / speed;
-	        memoryAR = ar_ms > 1200 ? (1800 - ar_ms) / 120 : 5 + (1200 - ar_ms) / 150;
-            full = full/1.5;
-            min = Math.round(min*1.5);
-            max = Math.round(max*1.5);
-            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["modSR"];
+            let ar_ms = Math.max(Math.min(memoryAR <= 5 ? 1800 - 120 * memoryAR : 1200 - 150 * (memoryAR - 5), 1800), 450) / 1.5;
+            memoryAR = ar_ms > 1200 ? ((1800 - ar_ms) / 120).toFixed(2) : (5 + (1200 - ar_ms) / 150).toFixed(2);
+        
+            min = Math.round(min * 1.5);
+            max = Math.round(max * 1.5);
+        
+            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
         }
     }
-    
     pickID.innerHTML = pick == null ? "XX1" : pick;
 
     beatmapTitle.innerHTML = title;
