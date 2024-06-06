@@ -1,0 +1,737 @@
+@font-face {
+    font-family: "Unbounded";
+    src: url("../_shared_assets/fonts/Unbounded.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-Light";
+    src: url("../_shared_assets/fonts/Unbounded-Light.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-SemiBold";
+    src: url("../_shared_assets/fonts/Unbounded-SemiBold.ttf");
+}
+
+#main {
+    font-size: 30px;
+    font-family: "Unbounded-SemiBold";
+    font-weight: normal;
+    color: white;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    /* background-color: grey; */
+	/* text-shadow: 0px 0px 8px black; */
+}
+
+#test {
+    top:0px;
+    left:0px;
+    position:absolute;
+    z-index:-1;
+    opacity:0.5;
+}
+
+#b {
+    height:1080px;
+    width:1920px;
+    top:0px;
+    left:0px;
+    position:absolute;
+    z-index:-2;
+    background-color: rgba(90, 90, 90, 0.9);
+}
+
+#top {
+    height:180px;
+    width:inherit;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mapDetails {
+    margin-top:500px;
+    height:100px;
+    width:900px;
+    background-color: #212121;
+    display:flex;
+    align-items: center;
+}
+
+#map {
+    height:75px;
+    width:230px;
+    /* background-color: green; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 10px;
+    margin-right:20px;
+    border-radius: 15px;
+    font-size: 65px;
+}
+
+#bg {
+    width:inherit;
+    height: inherit;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 0;
+	filter: brightness(70%) url("#sharpBlur");
+	object-fit: cover;
+	object-position: center;
+}
+
+#pickID {
+    z-index:1;
+}
+
+#beatmapDetails {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:630px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#song {
+    font-size:40px;
+	white-space: nowrap;
+    width:fit-content;
+}
+
+#songDelay {
+    font-size:40px;
+    width:fit-content;
+	white-space: nowrap;
+    display:none;
+}
+
+#mapper {
+    font-size:20px;
+}
+
+#stats {
+    display:flex;
+    flex-direction: row;
+}
+
+#oneColumnTwo {
+    display:flex;
+    height:32px;
+}
+
+#twoColumnTwo {
+    display:flex;
+    flex-direction: row-reverse;
+    height:32px;
+}
+
+#flagOne, #flagTwo {
+    height:60%;
+    margin-inline: 10px;
+    margin-top:-4px;
+}
+
+.statFont {
+    font-size:20px;
+    margin-right: 10px;
+}
+
+#clients {
+    width:inherit;
+    height:700px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.client {
+    width:900px;
+    height:675px;
+    /* background-color: rgb(163, 83, 96); */
+    display:flex;
+    flex-direction: row;
+    align-items: end;
+    border: 5px solid white;
+}
+
+#clientOne {
+    box-shadow: rgba(211, 83, 243, 0.8) 0 100px 200px -125px;
+}
+
+#clientTwo {
+    box-shadow: rgba(87, 223, 98, 0.8) 0 100px 200px -125px;
+}
+
+#statColumnOne, #statColumnTwo {
+    width:900px;
+    display:flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    font-size:40px;
+    opacity: 0;
+}
+
+.good, .miss {
+    width:70px;
+    display:flex;
+    margin-left:15px;
+}
+
+.good {
+    margin-right:20px;
+}
+
+.ur {
+    margin-left:15px;
+}
+
+.statIcon {
+    height:50px;
+}
+
+#urBarOne, #urBarTwo {
+    width:250px;
+    justify-content: center;
+}
+
+#statsOne, #statsTwo {
+    width:350px;
+    justify-content: center;
+}
+
+#statsOne, #urBarOne {
+    display:flex;
+    align-items: center;
+    background-color: rgba(119, 75, 128, 0.5);
+    border-radius: 20px;
+    padding-inline:15px;
+    margin-inline: 10px;
+    height:50px;
+    margin-bottom:245px;
+}
+
+#statsTwo, #urBarTwo {
+    display:flex;
+    align-items: center;
+    background-color: rgba(75, 128, 79, 0.5);
+    border-radius: 20px;
+    padding-inline:15px;
+    margin-inline: 10px;
+    height:50px;
+    margin-bottom:245px;
+}
+
+#bottom {
+    position: absolute;
+    height:180px;
+    width:inherit;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    top:900px;
+    left:0px;
+}
+
+#score {
+    width:inherit;
+    height:fit-content;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 250ms ease-in-out;
+}
+
+#scoreBar {
+    width:1200px;
+    display:flex;
+    justify-content: center;
+}
+
+#scoreBarLeft, #scoreBarRight {
+    width:600px;
+    height:20px;
+}
+
+#scoreBarLeft {
+    display:flex;
+    flex-direction: row-reverse;
+}
+
+#leftContent {
+    width:inherit;
+    height:20px;
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    transition: ease-in-out 500ms;
+}
+
+#rightContent {
+    width:inherit;
+    height:20px;
+    background-color: grey;
+    border-radius: 0px 20px 20px 0px;
+    transition: ease-in-out 500ms;
+}
+
+#scoreDifference {
+    margin-top:3px;
+    font-family: "Unbounded";
+    font-size:12px;
+    text-align: center;
+    display:flex;
+    width:1000px;
+    justify-content: center;
+}
+
+#diffLeft {
+    margin-right:5px;
+    width:485px;
+    text-align:right;
+}
+
+#diffRight {
+    margin-left:5px;
+    width:485px;
+    text-align:left;
+}
+
+#playerScore {
+    margin-top:70px;
+    width: 950px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#win {
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    top:75px;
+    font-size:20px;
+}
+
+#winLeft, #winRight {
+    color: #f46079;
+    background-color: white;
+    border-radius: 20px;
+    padding-inline:15px;
+    padding-block:4px;
+    margin-inline:40px;
+}
+
+#scoreText {
+    font-size: 13px;
+    color: #f46079;
+    background-color: white;
+    border-radius: 20px;
+    padding-inline:5px;
+    padding-block:2px;
+}
+
+#playerOneScore , #playerTwoScore {
+    width: 350px;
+    font-size:36px;
+    font-family: "Unbounded";
+}
+
+#playerOneScore {
+    text-align: right;
+    margin-right:10px;
+}
+
+#playerTwoScore {
+    text-align: left;
+    margin-left:10px;
+}
+
+#playerDetails {
+    width:inherit;
+    height:inherit;
+    display:flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.pfp {
+    margin-top:15px;
+    width:90px;
+    height:90px;
+    background-color: white;
+    margin-inline:50px;
+    border-radius: 150px;
+}
+
+#playerOne {
+    display:flex;
+    align-items: center;
+}
+
+#playerOneDetails {
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-left: -40px;
+    height:fit-content;
+}
+
+#playerTwo {
+    display:flex;
+    flex-direction: row-reverse;
+    text-align: right;
+    align-items: center;
+}
+
+#playerTwoDetails {
+    display:flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-right: -40px;
+    height:fit-content;
+    align-items: end;
+}
+
+#playerOneName, #playerTwoName {
+    font-size:30px;
+    margin-top:12px;
+    display:flex;
+    align-items: center;
+}
+
+#playerTwoName {
+    justify-content: end;
+}
+
+#playerOneSeed, #playerTwoSeed {
+    margin-top: -10px;
+}
+
+#playerOneRank, #playerTwoRank {
+    margin-top:-18px;
+}
+
+#otherDetails {
+    margin-top:30px;
+    height:50px;
+    width:inherit;
+    display:flex;
+    justify-content: space-between;
+}
+
+#leftPick, #rightPick {
+    height:inherit;
+    width:150px;
+    margin-inline:40px;
+    background-color: #212121;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:40px;
+}
+
+#bottomBoard {
+    width:1460px;
+    height:inherit;
+    background-color: #212121;
+    display:flex;
+    justify-content: space-between;
+}
+
+#progressBar {
+    width: 700px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#progressBarText {
+    font-size:22px;
+    margin-top:5px;
+}
+
+#content {
+    height:12px;
+    width: inherit;
+    border-radius: 12px;
+    display:flex;
+    background-image: linear-gradient(to right, #643466, #335620);
+}
+
+#fill {
+    position: absolute;
+    height:12px;
+    border-radius: 12px;
+    background-color: white;
+    transition: ease-in-out 100ms;
+}
+
+#winScreen {
+    font-size: 30px;
+    font-family: "Unbounded-SemiBold";
+    font-weight: normal;
+    color: white;
+    width: 1920px;
+    height: 200px;
+    /* background-color: grey; */
+    position: absolute;
+    top:1080px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	text-shadow: 0px 0px 8px black;
+}
+
+#winText, #percentage {
+    display:flex;
+    font-size:40px;
+}
+
+#winnerName {
+    margin-right:12px;
+}
+
+#finalScore {
+    display:flex;
+    font-size: 60px;
+}
+
+#playerOneFinal, #playerTwoFinal, #versus {
+    margin-inline: 25px;
+    margin-top:-15px;
+}
+
+#percentage {
+    margin-top:-10px;
+}
+
+/* SCORE RELATED STUFF */
+
+.point {
+    width:94%;
+}
+
+#scoreBlue {
+	left: 120px;
+	display: flex;
+    align-items: center;
+	height: inherit;
+    margin-top: 5px;
+    margin-left:2px;
+    margin-bottom:5px;
+}
+#scoreRed {
+	right: 120px;
+	display: flex;
+    justify-content: end;
+    align-items: center;
+	height: inherit;
+    margin-top: 5px;
+    margin-right:2px;
+    margin-bottom:5px;
+}
+
+#scoreBlue>.score {
+	width: 20px;
+	height: 20px;
+    border-radius: 5px;
+	margin-right:5px;
+    background-color: none;
+    border: 2px solid white;
+}
+
+#scoreRed>.score {
+	width: 20px;
+	height: 20px;
+    border-radius: 5px;
+	margin-left:5px;
+    background-color: none;
+    border: 2px solid white;
+}
+
+#scoreBlue>.scoreFill{
+	background-color: white !important
+}
+
+#scoreRed>.scoreFill{
+	background-color: white !important
+}
+
+#scoreBlue>.score.scoreFillAnimate {
+	animation: addScoreBlue 500ms forwards;
+}
+
+#scoreRed>.score.scoreFillAnimate {
+	animation: addScoreRed 500ms forwards;
+}
+
+#scoreBlue>.score.scoreNoneAnimate {
+	animation: removeScoreBlue 500ms forwards;
+}
+
+#scoreRed>.score.scoreNoneAnimate {
+	animation: removeScoreRed 500ms forwards;
+}
+
+@keyframes addScoreBlue {
+	from {
+        background-color: none;
+	}
+	to {
+		background-color: white;
+	}
+}
+
+@keyframes addScoreRed {
+	from {
+        background-color: none;
+	}
+	to {
+		background-color: white;
+	}
+}
+
+@keyframes removeScoreBlue {
+	from {
+		background-color: white;
+	}
+	to {
+        background-color: none;
+	}
+}
+
+@keyframes removeScoreRed {
+	from {
+		background-color: white;
+	}
+	to {
+        background-color: none;
+	}
+}
+
+@keyframes scrollText {
+	0% {
+	  transform: translateX(100%);
+	}
+	100% {
+	  transform: translateX(-100%);
+	}
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-275px);
+    }
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-275px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes statIn {
+    from {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+@keyframes statOut {
+    from {
+        transform: translateY(0);
+        opacity: 1
+    }
+    to {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+}
+
+@keyframes highlightScore {
+    from {
+        transform: scale(0.9);
+        color: rgb(150,150,150);
+    }
+    to {
+        transform: scale(1);
+        color: white;
+    }
+}
+
+@keyframes unhighlightScore {
+    from {
+        transform: scale(1);
+        color: white;
+    }
+    to {
+        transform: scale(0.9);
+        color: rgb(150,150,150);
+    }
+}
+
+@keyframes flashMissOne {
+    from {
+        border-color: red;
+        box-shadow: rgba(243, 83, 83, 0.8) 0 100px 200px -125px;
+    }
+    to {
+        border-color: white;
+        box-shadow: rgba(211, 83, 243, 0.8) 0 100px 200px -125px;
+    }
+}
+
+@keyframes flashMissBarOne {
+    from {
+        background-color: red;
+    }
+    to {
+        background-color: #900f93;
+    }
+}
+
+@keyframes flashMissTwo {
+    from {
+        border-color: red;
+        box-shadow: rgba(243, 83, 83, 0.8) 0 100px 200px -125px;
+    }
+    to {
+        border-color: white;
+        box-shadow: rgba(87, 223, 98, 0.8) 0 100px 200px -125px;
+    }
+}
+
+@keyframes flashMissBarTwo {
+    from {
+        background-color: red;
+    }
+    to {
+        background-color: #377a17;
+    }
+}
+
+#ss {
+    position:absolute;
+    top:0px;
+    z-index: -1;
+}

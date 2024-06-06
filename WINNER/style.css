@@ -1,0 +1,194 @@
+@font-face {
+    font-family: "Unbounded";
+    src: url("../_shared_assets/fonts/Unbounded.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-Light";
+    src: url("../_shared_assets/fonts/Unbounded-Light.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-SemiBold";
+    src: url("../_shared_assets/fonts/Unbounded-SemiBold.ttf");
+}
+
+#main {
+    font-size: 30px;
+    font-family: "Unbounded";
+    font-weight: normal;
+    color: white;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    /* background-color: grey; */
+    display:flex;
+	text-shadow: 0px 0px 8px black;
+}
+
+#button {
+    font-size: 40px;
+    font-family: "Unbounded";
+    font-weight: normal;
+    color: white;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top:440px;
+    left:1920px;
+    background-color: pink;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+	text-shadow: 0px 0px 8px black;
+    transition: 1000ms ease-in-out;
+    border: 5px solid white;
+}
+
+#versusAsset {
+    position:absolute;
+    transition: 1000ms ease-in-out;
+}
+
+#finalPoint {
+    font-family: "Unbounded-SemiBold";
+    color: #d17687;
+    text-shadow: none;
+    position:absolute;
+    width:inherit;
+    height:inherit;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1000ms ease-in-out;
+}
+
+#headerText {
+    position:absolute;
+    width:inherit;
+    height:inherit;
+    display:flex;
+    justify-content: center;
+}
+
+#winnerText {
+    font-family: "Unbounded-SemiBold";
+    background-color: #f56b85;
+    padding-block: 5px;
+    height:fit-content;
+    text-shadow: none;
+    padding-inline:20px;
+    position: absolute;
+    font-size:55px;
+    margin-top:260px;
+    transition: 1000ms ease-in-out;
+}
+
+#finalText {
+    font-family: "Unbounded-SemiBold";
+    background-color: #f56b85;
+    padding-block: 5px;
+    height:fit-content;
+    text-shadow: none;
+    padding-inline:20px;
+    font-size:40px;
+    margin-top:270px;
+    transition: 1000ms ease-in-out;
+}
+
+#pointOne, #pointTwo {
+    font-size:200px;
+    width:500px;
+    text-align: center;
+    transition: 1000ms ease-in-out;
+}
+
+#playerOneColumn, #playerTwoColumn {
+    width:50%;
+    height:100%;
+    /* background-color: rgba(0,0,0,0.5);
+    border: 2px solid white; */
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+#playerOne, #playerTwo {
+    margin-top:395px;
+    height:fit-content;
+    width:75%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1000ms ease-in-out;
+}
+
+#playerOne {
+    margin-right: 270px;
+}
+
+#playerTwo {
+    margin-left: 270px;
+}
+
+#playerOnePic, #playerTwoPic {
+    height:300px;
+    width:300px;
+}
+
+#playerOneDetails {
+    height:100%;
+    margin-left:25px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#playerTwoDetails {
+    text-align: right;
+    height:100%;
+    margin-right:25px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#playerOneName, #playerTwoName {
+    font-family: "Unbounded-SemiBold";
+    margin-top:15px;
+    font-size: 40px;
+    text-shadow: none;
+    background-color: #f56b85;
+    padding-block: 5px;
+    width:300px;
+    text-align: center;
+    white-space:nowrap;
+
+}
+
+@keyframes textOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(600px);
+        opacity: 0;
+    }
+}
+
+@keyframes textIn {
+    from {
+        transform: translateX(-600px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
