@@ -71,11 +71,12 @@ let beatmapTitle = document.getElementById("song");
 let beatmapTitleDelay = document.getElementById("songDelay");
 let beatmapMapper = document.getElementById("mapper");
 let mapText = document.getElementById("pickID");
+let mapCS = document.getElementById("mapCS");
+let mapAR = document.getElementById("mapAR");
 let mapOD = document.getElementById("mapOD");
 let mapSR = document.getElementById("mapSR");
 let mapBPM = document.getElementById("mapBPM");
 let mapLength = document.getElementById("mapLength");
-let mapBG = document.getElementById("bg");
 
 let scoreBlue = document.getElementById("scoreBlue");
 let scoreRed = document.getElementById("scoreRed");
@@ -83,11 +84,19 @@ let scoreRed = document.getElementById("scoreRed");
 let score = document.getElementById("score");
 let playerOneScore = document.getElementById("playerOneScore");
 let playerTwoScore = document.getElementById("playerTwoScore");
-let leftDiff = document.getElementById("leftDiff");
-let rightDiff = document.getElementById("rightDiff");
+let diffLeft = document.getElementById("diffLeft");
+let diffRight = document.getElementById("diffRight");
 
 let leftContent = document.getElementById("leftContent");
 let rightContent = document.getElementById("rightContent");
+
+let winLeft = document.getElementById("winLeft");
+let winRight = document.getElementById("winRight");
+
+let stdButton = document.getElementById("stdButton");
+let catchButton = document.getElementById("catchButton");
+let clientOneName = document.getElementById("clientOneName");
+let clientTwoName = document.getElementById("clientTwoName");
 
 // let goodOne = document.getElementById("goodOne");
 // let missOne = document.getElementById("missOne");
@@ -96,14 +105,14 @@ let rightContent = document.getElementById("rightContent");
 // let missTwo = document.getElementById("missTwo");
 // let urTwo = document.getElementById("urTwo");
 
-let winScreen = document.getElementById("winScreen");
-let winnerName = document.getElementById("winnerName");
-let playerOneFinal = document.getElementById("playerOneFinal");
-let playerTwoFinal = document.getElementById("playerTwoFinal");
-let percentage = document.getElementById("percentage");
+// let winScreen = document.getElementById("winScreen");
+// let winnerName = document.getElementById("winnerName");
+// let playerOneFinal = document.getElementById("playerOneFinal");
+// let playerTwoFinal = document.getElementById("playerTwoFinal");
+// let percentage = document.getElementById("percentage");
 
-// let clientOne = document.getElementById("clientOne");
-// let clientTwo = document.getElementById("clientTwo");
+let clientOne = document.getElementById("clientOne");
+let clientTwo = document.getElementById("clientTwo");
 // let statColumnOne = document.getElementById("statColumnOne");
 // let statColumnTwo = document.getElementById("statColumnTwo");
 
@@ -112,6 +121,8 @@ let chats = document.getElementById("chats");
 // PLACEHOLDER VARS //////////////////////////////////////////////
 let tempLeft;
 let tempRight;
+let tempLeftClient;
+let tempRightClient;
 let bestOfTemp;
 let scoreBlueTemp;
 let scoreRedTemp;
@@ -123,33 +134,63 @@ let cachedPlayerTwoScore;
 let cachedDifference;
 let cachedComboOne;
 let cachedComboTwo;
-let barThreshold = 100000;
+let barThreshold = 500000;
 let currentTime;
 let songStart = false;
+let currentMode = "std";
 
 // FOR ANIMATION //////////////////////////////////////////////////
 let animationScore = {
 	playerOneScore: new CountUp('playerOneScore', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
 	playerTwoScore: new CountUp('playerTwoScore', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
-    leftDiff: new CountUp('leftDiff', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
-    rightDiff: new CountUp('rightDiff', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
+    diffLeft: new CountUp('diffLeft', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
+    diffRight: new CountUp('diffRight', 0, 0, 0, .2, { useEasing: true, useGrouping: true, separator: ",", decimal: "." }),
     urOne: new CountUp('urOne', 0, 0, 2, { useEasing: true, useGrouping: true, separator: "", decimal: ".", decimalPlaces:2}),
     urTwo: new CountUp('urTwo', 0, 0, 2, { useEasing: true, useGrouping: true, separator: "", decimal: ".", decimalPlaces:2 })
 }
+
+// CONTROL PANEL ///////////////////
+stdButton.addEventListener("click", function(event) {
+    if (currentMode != "std") {
+        currentMode = "std";
+        stdButton.style.backgroundColor = "rgb(184, 67, 131)";
+        catchButton.style.backgroundColor = "pink";
+        mapOD.style.display = "";
+    }
+})
+
+catchButton.addEventListener("click", function(event) {
+    if (currentMode != "ctb") {
+        currentMode = "ctb";
+        catchButton.style.backgroundColor = "rgb(184, 67, 131)";
+        stdButton.style.backgroundColor = "pink";
+        mapOD.style.display = "none";
+    }
+})
 
 // MAIN LOOP ////////////////////////////////////////////////////////////////
 socket.onmessage = async event => {
     let data = JSON.parse(event.data);
     
-    animationScore.playerOneScore.update(1000000);
-    animationScore.playerTwoScore.update(1000000);
+    // animationScore.playerOneScore.update(1000000);
+    // animationScore.playerTwoScore.update(1000000);
 
     tempLeft = data.tourney.manager.teamName.left;
     tempRight = data.tourney.manager.teamName.right;
 
     if (previousState != data.tourney.manager.ipcState) {
-        // checkState(data.tourney.manager.ipcState);
+        checkState(data.tourney.manager.ipcState);
         previousState = data.tourney.manager.ipcState;
+    }
+
+    // Player Names
+    if (tempLeftClient != data.tourney.ipcClients[0].gameplay.name) {
+        tempLeftClient = data.tourney.ipcClients[0].gameplay.name;
+        clientOneName.innerHTML = `Client One:${tempLeftClient}`;
+    }
+    if (tempRightClient != data.tourney.ipcClients[1].gameplay.name) {
+        tempRightClient = data.tourney.ipcClients[1].gameplay.name;
+        clientTwoName.innerHTML = `Client Two:${tempRightClient}`;
     }
 
     // Player Names
@@ -169,7 +210,7 @@ socket.onmessage = async event => {
 
     if (data.tourney.manager.bools.scoreVisible) {
         updateScore(data.tourney.manager.gameplay.score.left, data.tourney.manager.gameplay.score.right);
-        // updateClientStats(data.tourney.ipcClients);
+        updateClientStats(data.tourney.ipcClients);
     }
 
     if (bestOfTemp !== Math.ceil(data.tourney.manager.bestOF / 2) || scoreBlueTemp !== data.tourney.manager.stars.left || scoreRedTemp !== data.tourney.manager.stars.right) {
@@ -243,10 +284,9 @@ socket.onmessage = async event => {
 // FUNCTIONS ////////////////////////////////////////////////////////////////
 async function updateDetails(data) {
 	let { id } = data.menu.bm;
-	let { memoryOD, fullSR, BPM: { min, max } } = data.menu.bm.stats;
+	let { memoryAR, memoryCS, memoryOD, fullSR, BPM: { min, max } } = data.menu.bm.stats;
 	let { full } = data.menu.bm.time;
     let { difficulty, mapper, artist, title } = data.menu.bm.metadata;
-    let file = data.menu.bm.path.file;
     let pick;
     let customMapper = "";
 
@@ -256,26 +296,21 @@ async function updateDetails(data) {
         customMapper = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["mappers"];
         let mod = pick.substring(0,2).toUpperCase();
         if (mod == "HR") {
-            memoryOD = Math.min(memoryOD*1.4, 10).toFixed(2);
-        } else if (mod == "DT") {
-            memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(2);
-            full = full/1.5;
-            min = Math.round(min*1.5);
-            max = Math.round(max*1.5);
+            memoryOD = Math.min(memoryOD*1.4, 10).toFixed(1);
+            memoryCS = Math.min(memoryCS*1.3, 10).toFixed(1);
+            memoryAR = Math.min(memoryAR*1.4, 10).toFixed(1);
             fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
-        }
-    } else if (beatmaps.includes(file)) {
-        pick = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["pick"];
-        customMapper = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["mappers"];
-        let mod = pick.substring(0,2).toUpperCase();
-        if (mod == "HR") {
-            memoryOD = Math.min(memoryOD*1.4, 10).toFixed(2);
         } else if (mod == "DT") {
-            memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(2);
-            full = full/1.5;
-            min = Math.round(min*1.5);
-            max = Math.round(max*1.5);
-            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["modSR"];
+            // thanks schdewz
+            memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(1);
+            let ar_ms = Math.max(Math.min(memoryAR <= 5 ? 1800 - 120 * memoryAR : 1200 - 150 * (memoryAR - 5), 1800), 450) / 1.5;
+            memoryAR = ar_ms > 1200 ? ((1800 - ar_ms) / 120).toFixed(2) : (5 + (1200 - ar_ms) / 150).toFixed(1);
+        
+            min = Math.round(min * 1.5);
+            max = Math.round(max * 1.5);
+            full = Math.round(full/1.5);
+        
+            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
         }
     }
     
@@ -285,15 +320,13 @@ async function updateDetails(data) {
     beatmapTitle.innerHTML = `${artist} - ${title}`;
     beatmapMapper.innerHTML = customMapper != "" ? `Mapped by ${customMapper}`:`Mapset by ${mapper}`;
     mapOD.innerHTML = `OD ${memoryOD}`;
+    mapCS.innerHTML = `CS ${memoryCS}`;
+    mapAR.innerHTML = `AR ${memoryAR}`;
     mapSR.innerHTML = `SR ${fullSR}*`;
     mapBPM.innerHTML = `BPM ${min === max ? min : `${min}-${max}`}`;
     mapLength.innerHTML = `Length ${parseTime(full)}`;
 
     data.menu.bm.path.full = data.menu.bm.path.full.replace(/#/g,'%23').replace(/%/g,'%25');
-    bg.setAttribute('src',`http://` + location.host + `/Songs/${data.menu.bm.path.full}?a=${Math.random(10000)}`);
-    bg.onerror = function() {
-        bg.setAttribute('src',`../_shared_assets/design/temporary_bg.png`);
-    };
 }
 
 async function setPlayerDetails(element, username) {
@@ -342,32 +375,38 @@ async function updateScore(playScoreOne, playScoreTwo) {
     // animationScore.playerTwoScore.update(1000000);
     animationScore.playerOneScore.update(playScoreOne);
     animationScore.playerTwoScore.update(playScoreTwo);
-    animationScore.leftDiff.update(difference);
-    animationScore.rightDiff.update(difference);
+    animationScore.diffLeft.update(difference);
+    animationScore.diffRight.update(difference);
     cachedPlayerOneScore = playScoreOne;
     cachedPlayerTwoScore = playScoreTwo;
     cachedDifference = difference;
     if (playScoreOne > playScoreTwo) {
         leftContent.style.width = `${(difference/barThreshold > 1 ? 1 : difference/barThreshold)*710}px`;
         rightContent.style.width = "0px";
-        playerOneScore.style.animation = "highlightScore 0.5s ease-in-out";
-        playerOneScore.style.color = "white";
-        playerOneScore.style.transform = "scale(1)";
-        playerTwoScore.style.animation = "unhighlightScore 0.5s ease-in-out";
-        playerTwoScore.style.color = "rgb(150,150,150)";
-        playerTwoScore.style.transition = "scale(0.9)";
+        diffLeft.style.opacity = 1;
+        diffRight.style.opacity = 0;
+        // playerOneScore.style.animation = "highlightScore 0.5s ease-in-out";
+        // playerOneScore.style.color = "white";
+        // playerOneScore.style.transform = "scale(1)";
+        // playerTwoScore.style.animation = "unhighlightScore 0.5s ease-in-out";
+        // playerTwoScore.style.color = "rgb(150,150,150)";
+        // playerTwoScore.style.transition = "scale(0.9)";
     } else if (playScoreOne < playScoreTwo) {
         rightContent.style.width = `${(difference/barThreshold > 1 ? 1 : difference/barThreshold)*710}px`;
         leftContent.style.width = "0px";
-        playerTwoScore.style.animation = "highlightScore 0.5s ease-in-out";
-        playerTwoScore.style.color = "white";
-        playerTwoScore.style.transform = "scale(1)";
-        playerOneScore.style.animation = "unhighlightScore 0.5s ease-in-out";
-        playerOneScore.style.color = "rgb(150,150,150)";
-        playerOneScore.style.transition = "scale(0.9)";
+        diffRight.style.opacity = 1;
+        diffLeft.style.opacity = 0;
+        // playerTwoScore.style.animation = "highlightScore 0.5s ease-in-out";
+        // playerTwoScore.style.color = "white";
+        // playerTwoScore.style.transform = "scale(1)";
+        // playerOneScore.style.animation = "unhighlightScore 0.5s ease-in-out";
+        // playerOneScore.style.color = "rgb(150,150,150)";
+        // playerOneScore.style.transition = "scale(0.9)";
     } else {
         leftContent.style.width = "0px";
         rightContent.style.width = "0px";
+        diffRight.style.opacity = 0;
+        diffLeft.style.opacity = 0;
     }
 }
 
@@ -375,8 +414,8 @@ async function updateClientStats(data) {
     playerOneData = data[0].gameplay;
     playerTwoData = data[1].gameplay;
 
-    animationScore.urOne.update(playerOneData.hits.unstableRate);
-    animationScore.urTwo.update(playerTwoData.hits.unstableRate);
+    // animationScore.urOne.update(playerOneData.hits.unstableRate);
+    // animationScore.urTwo.update(playerTwoData.hits.unstableRate);
     // console.log("current: "+playerOneData.combo.current);
     // console.log("cached: "+cachedComboOne);
 
@@ -391,10 +430,10 @@ async function updateClientStats(data) {
     cachedComboOne = playerOneData.combo.current;
     cachedComboTwo = playerTwoData.combo.current;
 
-    goodOne.innerHTML = playerOneData.hits["100"];
-    missOne.innerHTML = playerOneData.hits["0"];
-    goodTwo.innerHTML = playerTwoData.hits["100"];
-    missTwo.innerHTML = playerTwoData.hits["0"];
+    // goodOne.innerHTML = playerOneData.hits["100"];
+    // missOne.innerHTML = playerOneData.hits["0"];
+    // goodTwo.innerHTML = playerTwoData.hits["100"];
+    // missTwo.innerHTML = playerTwoData.hits["0"];
 }
 
 async function makeScrollingText(title, titleDelay, rate, boundaryWidth, padding) {
@@ -421,35 +460,41 @@ async function makeScrollingText(title, titleDelay, rate, boundaryWidth, padding
 async function checkState(ipcState) {
     if (ipcState == 3) {
         score.style.opacity = 1;
-        statColumnOne.style.animation ="statIn 1s ease-in-out";
-        statColumnTwo.style.animation ="statIn 1s ease-in-out";
-        statColumnOne.style.opacity = 1;
-        statColumnTwo.style.opacity = 1;
+        winLeft.style.opacity = 0;
+        winRight.style.opacity = 0;
+        // statColumnOne.style.animation ="statIn 1s ease-in-out";
+        // statColumnTwo.style.animation ="statIn 1s ease-in-out";
+        // statColumnOne.style.opacity = 1;
+        // statColumnTwo.style.opacity = 1;
     } else if (ipcState == 4 & cachedPlayerOneScore != cachedPlayerTwoScore) {
         let oneWinner = cachedPlayerOneScore > cachedPlayerTwoScore ? true : false;
-        playerOneFinal.innerHTML = cachedPlayerOneScore;
-        playerTwoFinal.innerHTML = cachedPlayerTwoScore;
-        playerOneFinal.style.color = oneWinner?"white":"rgb(150,150,150)";
-        playerTwoFinal.style.color = !oneWinner?"white":"rgb(150,150,150)";
-        score.style.opacity = 0;
-        let ratio = oneWinner?cachedDifference/cachedPlayerOneScore:cachedDifference/cachedPlayerTwoScore;
-        winnerName.innerHTML = cachedPlayerOneScore > cachedPlayerTwoScore ? playerOne.innerHTML : playerTwo.innerHTML;
-        winnerName.style.color = cachedPlayerOneScore > cachedPlayerTwoScore ? "#900f93" : "#377a17";
-        percentage.innerHTML = `${(ratio*100).toFixed(2)}%`;
-        winScreen.style.animation = "moveUp 1s ease-in-out";
-        winScreen.style.transform = "translateY(-275px)";
-        statColumnOne.style.animation ="statOut 1s ease-in-out";
-        statColumnTwo.style.animation ="statOut 1s ease-in-out";
-        statColumnOne.style.opacity = 0;
-        statColumnTwo.style.opacity = 0;
+        winLeft.style.opacity = oneWinner ? 1 : 0;
+        winRight.style.opacity = oneWinner ? 0 : 1;
+        // playerOneFinal.innerHTML = cachedPlayerOneScore;
+        // playerTwoFinal.innerHTML = cachedPlayerTwoScore;
+        // playerOneFinal.style.color = oneWinner?"white":"rgb(150,150,150)";
+        // playerTwoFinal.style.color = !oneWinner?"white":"rgb(150,150,150)";
+        score.style.opacity = 1;
+        // let ratio = oneWinner?cachedDifference/cachedPlayerOneScore:cachedDifference/cachedPlayerTwoScore;
+        // winnerName.innerHTML = cachedPlayerOneScore > cachedPlayerTwoScore ? playerOne.innerHTML : playerTwo.innerHTML;
+        // winnerName.style.color = cachedPlayerOneScore > cachedPlayerTwoScore ? "#900f93" : "#377a17";
+        // percentage.innerHTML = `${(ratio*100).toFixed(2)}%`;
+        // winScreen.style.animation = "moveUp 1s ease-in-out";
+        // winScreen.style.transform = "translateY(-275px)";
+        // statColumnOne.style.animation ="statOut 1s ease-in-out";
+        // statColumnTwo.style.animation ="statOut 1s ease-in-out";
+        // statColumnOne.style.opacity = 0;
+        // statColumnTwo.style.opacity = 0;
     } else {
-        winScreen.style.animation = "moveDown 1s ease-in-out";
-        winScreen.style.transform = "translateY(0px)";
+        // winScreen.style.animation = "moveDown 1s ease-in-out";
+        // winScreen.style.transform = "translateY(0px)";
+        winLeft.style.opacity = 0;
+        winRight.style.opacity = 0;
         score.style.opacity = 0;
-        statColumnOne.style.animation ="statOut 1s ease-in-out";
-        statColumnTwo.style.animation ="statOut 1s ease-in-out";
-        statColumnOne.style.opacity = 0;
-        statColumnTwo.style.opacity = 0;
+        // statColumnOne.style.animation ="statOut 1s ease-in-out";
+        // statColumnTwo.style.animation ="statOut 1s ease-in-out";
+        // statColumnOne.style.opacity = 0;
+        // statColumnTwo.style.opacity = 0;
     }
 }
 
