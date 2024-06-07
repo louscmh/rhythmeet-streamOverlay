@@ -1,0 +1,330 @@
+@font-face {
+    font-family: "Unbounded";
+    src: url("../_shared_assets/fonts/Unbounded.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-Light";
+    src: url("../_shared_assets/fonts/Unbounded-Light.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-SemiBold";
+    src: url("../_shared_assets/fonts/Unbounded-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "ClimateCrisis";
+    src: url("../_shared_assets/fonts/ClimateCrisis.ttf");
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    overflow-y: hidden;
+    user-select: none;
+}
+
+#main {
+    font-size: 30px;
+    font-family: Unbounded;
+    font-weight: normal;
+    color: white;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    background-image: url('../static/Background.png');
+    /*text-shadow: 0px 0px 8px black;*/
+}
+
+.odometer.odometer-auto-theme {
+    font-size: 24px !important;
+    font-family: "Raleway Bold", Helvetica, sans-serif !important;
+    font-weight: normal !important;
+}
+
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,
+.odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+}
+
+.background--light {
+    color: #161616;
+}
+
+.background--dark {
+    color: #fff;
+}
+
+#mappoolContainer {
+    position: absolute;
+    top: 180px;
+    height: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.mapContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-block: 6px;
+}
+
+.map {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 5px;
+    width: 540px;
+    height: 70px;
+    background-color: rgba(0,0,0,0.80);
+    background-size: 100%;
+    background-position: center center;
+    color: #00080F;
+    border-radius: 50px;
+    /* box-shadow: 0px 5px 20px -3px black; */
+    transition: ease-in-out 200ms;
+}
+
+.mapInfo {
+    width: 95%;
+    margin-left: 30px;
+    margin-right: 50px;
+    transform: translateY(14px);
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 0 2px 3px black;
+    user-select: none;
+    transition: ease-in-out 200ms;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index:2;
+}
+
+.mapInfoStat {
+    width: 95%;
+    margin-left: 30px;
+    margin-right: 30px;
+    transform: translateY(14px);
+    color: #fff;
+    font-size: 13px;
+    font-family: Unbounded-Light;
+    text-shadow: 0 2px 3px black;
+    user-select: none;
+    transition: ease-in-out 200ms;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index:2;
+}
+
+.pickingStatus {
+    position: absolute;
+    top: 45px;
+    right: 50px;
+    width: 100px;
+    height: 20px;
+    line-height: 30px;
+    font-family: Unbounded-SemiBold;
+    font-size: 15px;
+    text-align: center;
+    user-select: none;
+    transition: ease-in-out 300ms;
+    opacity: 0;
+    border-radius: 25px;
+    /* text-shadow: 0 0 10px black; */
+    color: #f46079;
+    background-color: white;
+    z-index:4;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0,0,0);
+    border-radius: 50px;
+    opacity: 0.6;
+    transition: ease-in-out 200ms;
+    z-index:0;
+}
+
+/* .statBG {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    width: 350px;
+    height: 20px;
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px -3px black;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 20px;
+    font-family: Raleway Regular;
+    font-size: 14px;
+    line-height: 20px;
+    text-shadow: 0 2px 3px black;
+    text-align: center;
+    user-select: none;
+    transition: ease-in-out 200ms
+} */
+
+.modText {
+    position: absolute;
+    font-family:ClimateCrisis;
+    font-size:95px;
+    top:-30px;
+    right: -5px;
+    height: 38px;
+    opacity:0.3;
+    z-index:1;
+    letter-spacing:5px;
+}
+
+.modIcon {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    width: 32.3px;
+    height: 61.74px;
+    background-size: 100%;
+    z-index:1;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: ease-in-out 200ms;
+}
+
+/* .pickIcon {
+    position: absolute;
+    margin: 10px 0px 0px 30px;
+    width: 630px;
+    height: 37px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: ease-in-out 200ms;
+} */
+
+.clicker {
+    width: 540px;
+    height: 70px;
+    transition: ease-in-out 300ms;
+    margin-block:5px;
+    margin-inline:40px;
+    overflow:hidden;
+    border-radius:50px;
+}
+
+
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    visibility: 0;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+}
+
+/* CHAT RELATED STUFF */
+
+#chatContainer {
+    z-index:-1;
+    position:absolute;
+	top: 0px;
+    left:0px;
+	width: 1920px;
+	height: 1080px;
+    display:flex;
+    justify-content: center;
+    align-items: start;
+}
+
+#chats {
+    position:absolute;
+    bottom:-5px;
+    left:-5px;
+    width: 1300px;
+    height: 185px;
+	background-color: rgba(0,0,0,0.80);
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 15px 5px 5px 15px;
+	font-size: 20px;
+    font-family: "Unbounded", monospace;
+    transition: ease-in-out 500ms;
+    color:white;
+    border-radius: 0px 170px 170px 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 5px solid white;
+    overflow:hidden;
+}
+
+.chat {
+	display: flex;
+	text-align: left;
+}
+
+.chatTime {
+	width: 5%;
+	color: rgb(255, 255, 255);
+	margin-right: 25px;
+}
+.wholeChat {
+	width: 95%;
+	display: flex;
+}
+.chatName {
+	color: white;
+	white-space: nowrap;
+	width: max-content;
+}
+.chatText {
+	white-space: normal;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.unknown {
+	color: rgb(251, 255, 0);
+}
+.bot {
+	color: #FF66AA;
+}
+.left {
+	color: #f46079;
+}
+.right {
+	color: #f46079;
+}

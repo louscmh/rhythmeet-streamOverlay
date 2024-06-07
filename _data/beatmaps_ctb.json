@@ -1,0 +1,17 @@
+[
+    { "beatmapId": 2315562, "pick": "NM1", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 4146523, "pick": "NM2", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 4345774, "pick": "NM3", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 4079879, "pick": "NM4", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 4276859, "pick": "NM5", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 3584257, "pick": "HD1", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 724582, "pick": "HD2", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 2097074, "pick": "HD3", "modSR":null, "mappers":"", "customName":""},
+    { "beatmapId": 4439706, "pick": "HR1", "modSR":4.62, "mappers":"", "customName":""},
+    { "beatmapId": 4427423, "pick": "HR2", "modSR":4.60, "mappers":"", "customName":""},
+    { "beatmapId": 3903344, "pick": "HR3", "modSR":4.60, "mappers":"", "customName":""},
+    { "beatmapId": 2786508, "pick": "DT1", "modSR":4.42, "mappers":"", "customName":""},
+    { "beatmapId": 2772147, "pick": "DT2", "modSR":4.64, "mappers":"", "customName":""},
+    { "beatmapId": 723285, "pick": "DT3", "modSR":4.22, "mappers":"", "customName":""},
+    { "beatmapId": 1633812, "pick": "TB", "modSR":null, "mappers":"", "customName":""}
+]
