@@ -1,6 +1,17 @@
 # rhythmeet-streamOverlay
 The main repository for the overlay of o!MY @ Rhythmeet 2024, meant to be ran on tosu.
 
+## Setting up OBS
+The scene file is located in `_data/`. The JSON file will be named **rhythmeet_vX.X** in the directory. Just select the latest version if there are numerous jsons
+
+After importing the scene file, you should be prompted with a Missing Files tab.
+
+Click on "Search Directory..." and select the `_shared_assets` folder in the project files. If it doesn't fully link all the missing files, try selecting the subfolders in the `_shared_assets` folder. After that, just click on Apply and the assets should be displayed.
+
+## Setting up beatmaps
+First of all, key in your api key into `_data/api.json`.
+The beatmaps is by default displaying the Standard Brackets pool, found in `_data/beatmaps.json`. If you want to switch said beatmaps, just rename your new json file into `beatmaps.json` in the same directory and you should be good to go.
+
 ## Examples of projected scenes
 ### Starting Soon
 ![alt text](_setup/image.png)
@@ -12,6 +23,12 @@ All text are manually adjusted, including the Coming Up Text, and timeslot.
 
 ### Mappool Scene
 ![alt text](_setup/image-3.png)
+
+- Left Click to pick for **Player 1**
+- Right Click to pick for **Player 2**
+- Shift + Left Click to ban for **Player 1**
+- Shift + Right Click to ban for **Player 2**
+- Ctrl + Left Click to retract any actions
 
 ### Match Scene
 ![alt text](_setup/image-4.png)
