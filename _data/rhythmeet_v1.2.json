@@ -1,6 +1,6 @@
 {
-    "current_scene": "Mappool",
-    "current_program_scene": "Mappool",
+    "current_scene": "Starting Soon",
+    "current_program_scene": "Starting Soon",
     "scene_order": [
         {
             "name": "Starting Soon"
@@ -84,11 +84,11 @@
                         "name": "Coming Up Text",
                         "source_uuid": "e9758d7f-12c1-4d65-a85f-49582e2f2e95",
                         "visible": true,
-                        "locked": true,
+                        "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 34.0,
-                            "y": 274.0
+                            "x": 213.0,
+                            "y": 275.0
                         },
                         "scale": {
                             "x": 0.21081605553627014,
@@ -1641,7 +1641,7 @@
             "id": "text_gdiplus",
             "versioned_id": "text_gdiplus_v2",
             "settings": {
-                "text": "STD Qualifiers Result + Bracket Showcase",
+                "text": "STD - Player 1 vs Player 2",
                 "font": {
                     "face": "Unbounded SemiBold",
                     "style": "SemiBold",
@@ -1674,7 +1674,7 @@
             "id": "text_gdiplus",
             "versioned_id": "text_gdiplus_v2",
             "settings": {
-                "text": "20:00",
+                "text": "22:00",
                 "font": {
                     "face": "Unbounded SemiBold",
                     "style": "SemiBold",
@@ -1775,7 +1775,7 @@
             "id": "text_gdiplus",
             "versioned_id": "text_gdiplus_v2",
             "settings": {
-                "text": "00:04:54",
+                "text": "00:04:00",
                 "font": {
                     "face": "Climate Crisis 1979",
                     "style": "1979",
@@ -3892,11 +3892,11 @@
                         "name": "Coming Up Text",
                         "source_uuid": "e9758d7f-12c1-4d65-a85f-49582e2f2e95",
                         "visible": true,
-                        "locked": true,
+                        "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 130.0,
-                            "y": 516.0
+                            "x": 309.0,
+                            "y": 517.0
                         },
                         "scale": {
                             "x": 0.21081605553627014,
@@ -4009,7 +4009,7 @@
                         "name": "Texts",
                         "source_uuid": "70d0a4e2-8629-4baa-9a57-e43db7380af5",
                         "visible": true,
-                        "locked": true,
+                        "locked": false,
                         "rot": 0.0,
                         "pos": {
                             "x": 96.0,
@@ -4043,7 +4043,7 @@
                             "duration": 0
                         },
                         "private_settings": {
-                            "collapsed": true,
+                            "collapsed": false,
                             "color-preset": 7,
                             "color": ""
                         }
