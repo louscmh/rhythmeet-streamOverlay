@@ -1703,6 +1703,40 @@
         },
         {
             "prev_ver": 503382018,
+            "name": "Commentator - Match",
+            "uuid": "b279cffd-4c22-4256-b163-cc8ec8f917c9",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "url": "https://streamkit.discord.com/overlay/voice/1107632956421447761/1136662738907701350",
+                "width": 700,
+                "css": "img[class*=\"voice_avatar\"] {\n\tobject-fit: cover;\n\twidth: 100px;\n\theight: 50px;\n\tborder: 0;\n\tborder-radius:0;\n\tfilter:brightness(50%);\n\ttransition: all 0.2s ease-in-out;\n}\n\nimg[class*=\"avatarSpeaking\"] {\n filter:brightness(95%); \n}\n\nul[class*=\"voice_states\"] {\n\twidth: 600px;\n\tpadding-left: 0px;\n\tmargin-top: 0px;\n\tdisplay: flex;\n\tflex-direction: row-reverse;\n}\n\nli[class*=\"voice_state\"] {\n\tdisplay: flex;\n\tflex-direction: column;\n\tmargin-bottom:25px;\n}\n\ndiv[class*=\"voice_username\"] {\n\ttext-align: center;\n\tpadding-top: 0;\n}\n\nspan[class*=\"name\"] {\n\tdisplay: block;\n\twidth:90px;\n\tpadding-inline: 5px;\n\tpadding-block: 3px;\n\tbackground-color: rgba(0,0,0,0.7) !important;\n\toverflow: hidden;\n\ttext-overflow: ellipsis;\n\twhite-space: nowrap;\n}\n\nli[data-userid*=\"308083236071014402\"] {\n\twidth: 0;\n\theight: 0;\n}"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503382018,
             "name": "Commentator - Showcase",
             "uuid": "fc2ae2d5-1036-4a30-9f51-fa436e9dba19",
             "id": "browser_source",
@@ -1852,7 +1886,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 8,
+                "id_counter": 10,
                 "custom_size": false,
                 "items": [
                     {
@@ -2101,7 +2135,7 @@
                         "name": "Match Overlay",
                         "source_uuid": "d91b6a21-7507-49f5-a622-f509a9e16b51",
                         "visible": true,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "pos": {
                             "x": 0.0,
@@ -2138,6 +2172,48 @@
                             "color-preset": 7,
                             "color": ""
                         }
+                    },
+                    {
+                        "name": "Commentator - Match",
+                        "source_uuid": "b279cffd-4c22-4256-b163-cc8ec8f917c9",
+                        "visible": true,
+                        "locked": true,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1111.0,
+                            "y": 970.0
+                        },
+                        "scale": {
+                            "x": 1.1214286088943481,
+                            "y": 1.125
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 514,
+                        "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {
+                            "color-preset": 7,
+                            "color": ""
+                        }
                     }
                 ]
             },
@@ -2159,7 +2235,9 @@
                 "libobs.show_scene_item.8": [],
                 "libobs.hide_scene_item.8": [],
                 "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.10": [],
+                "libobs.hide_scene_item.10": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2225,7 +2303,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 3,
+                "id_counter": 4,
                 "custom_size": false,
                 "items": [
                     {
@@ -2432,6 +2510,48 @@
                             "color-preset": 7,
                             "color": ""
                         }
+                    },
+                    {
+                        "name": "Commentator - Match",
+                        "source_uuid": "b279cffd-4c22-4256-b163-cc8ec8f917c9",
+                        "visible": true,
+                        "locked": true,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 1111.0,
+                            "y": 970.0
+                        },
+                        "scale": {
+                            "x": 1.1214286088943481,
+                            "y": 1.125
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 514,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {
+                            "color-preset": 7,
+                            "color": ""
+                        }
                     }
                 ]
             },
@@ -2453,7 +2573,9 @@
                 "libobs.show_scene_item.2": [],
                 "libobs.hide_scene_item.2": [],
                 "libobs.show_scene_item.3": [],
-                "libobs.hide_scene_item.3": []
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2467,9 +2589,9 @@
             "id": "browser_source",
             "versioned_id": "browser_source",
             "settings": {
+                "url": "http://127.0.0.1:24050/rhythmeet-streamOverlay/MAPPOOL/",
                 "width": 1920,
-                "height": 1080,
-                "url": "http://127.0.0.1:24050/rhythmeet-streamOverlay/MAPPOOL/"
+                "height": 1080
             },
             "mixers": 255,
             "sync": 0,
