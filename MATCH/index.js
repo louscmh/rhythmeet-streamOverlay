@@ -134,7 +134,7 @@ let cachedPlayerTwoScore;
 let cachedDifference;
 let cachedComboOne;
 let cachedComboTwo;
-let barThreshold = 500000;
+let barThreshold = 350000;
 let currentTime;
 let songStart = false;
 let currentMode = "std";
