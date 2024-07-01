@@ -119,8 +119,8 @@ async function updateDetails(data) {
     beatmapDiff.innerHTML = difficulty;
     beatmapMapper.innerHTML = customMapper != "" ? customMapper:mapper;
     mapOD.innerHTML = memoryOD;
-    mapAR.innerHTML = memoryAR;
-    mapCS.innerHTML = memoryCS;
+    // mapAR.innerHTML = memoryAR;
+    // mapCS.innerHTML = memoryCS;
     mapSR.innerHTML = fullSR;
     mapBPM.innerHTML = min === max ? min : `${min}-${max}`;
     mapLength.innerHTML = parseTime(full);
