@@ -76,7 +76,7 @@ const mods = {
     HR: 2,
     DT: 3,
     FM: 4,
-    BAM: 5,
+    TB: 5,
 };
 
 class Beatmap {
@@ -215,7 +215,7 @@ async function setupBeatmaps() {
         HR: 0,
         DT: 0,
         FM: 0,
-        BAM: 0,
+        TB: 0,
     };
 
     const bms = [];
