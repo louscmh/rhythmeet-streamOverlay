@@ -76,7 +76,11 @@ const mods = {
     HR: 2,
     DT: 3,
     FM: 4,
-    TB: 5,
+    RC: 5,
+    LN: 6,
+    HB: 7,
+    SV: 8,
+    TB: 9,
 };
 
 class Beatmap {
@@ -215,6 +219,10 @@ async function setupBeatmaps() {
         HR: 0,
         DT: 0,
         FM: 0,
+        RC: 0,
+        LN: 0,
+        HB: 0,
+        SV: 0,
         TB: 0,
     };
 
