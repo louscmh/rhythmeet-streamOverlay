@@ -95,6 +95,8 @@ let winRight = document.getElementById("winRight");
 
 let stdButton = document.getElementById("stdButton");
 let catchButton = document.getElementById("catchButton");
+let maniaButton = document.getElementById("maniaButton");
+let taikoButton = document.getElementById("taikoButton");
 let clientOneName = document.getElementById("clientOneName");
 let clientTwoName = document.getElementById("clientTwoName");
 
@@ -155,7 +157,11 @@ stdButton.addEventListener("click", function(event) {
         currentMode = "std";
         stdButton.style.backgroundColor = "rgb(184, 67, 131)";
         catchButton.style.backgroundColor = "pink";
+        taikoButton.style.backgroundColor = "pink";
+        maniaButton.style.backgroundColor = "pink";
         mapOD.style.display = "";
+        mapCS.style.display = "";
+        mapAR.style.display = "";
     }
 })
 
@@ -164,7 +170,38 @@ catchButton.addEventListener("click", function(event) {
         currentMode = "ctb";
         catchButton.style.backgroundColor = "rgb(184, 67, 131)";
         stdButton.style.backgroundColor = "pink";
+        maniaButton.style.backgroundColor = "pink";
+        taikoButton.style.backgroundColor = "pink";
         mapOD.style.display = "none";
+        mapCS.style.display = "";
+        mapAR.style.display = "";
+    }
+})
+
+taikoButton.addEventListener("click", function(event) {
+    if (currentMode != "taiko") {
+        currentMode = "taiko";
+        taikoButton.style.backgroundColor = "rgb(184, 67, 131)";
+        stdButton.style.backgroundColor = "pink";
+        catchButton.style.backgroundColor = "pink";
+        maniaButton.style.backgroundColor = "pink";
+        stdButton.style.backgroundColor = "pink";
+        mapOD.style.display = "";
+        mapCS.style.display = "none";
+        mapAR.style.display = "none";
+    }
+})
+
+maniaButton.addEventListener("click", function(event) {
+    if (currentMode != "mania") {
+        currentMode = "mania";
+        maniaButton.style.backgroundColor = "rgb(184, 67, 131)";
+        stdButton.style.backgroundColor = "pink";
+        catchButton.style.backgroundColor = "pink";
+        taikoButton.style.backgroundColor = "pink";
+        mapOD.style.display = "";
+        mapCS.style.display = "none";
+        mapAR.style.display = "none";
     }
 })
 
