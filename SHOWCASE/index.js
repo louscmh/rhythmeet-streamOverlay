@@ -64,9 +64,9 @@ async function updateDetails(data) {
     let pick;
     let customMapper = "";
 
-    if (data.menu.mods.str.includes("DT") || data.menu.mods.str.includes("NC")) {
-        return;
-    }
+    // if (data.menu.mods.str.includes("DT") || data.menu.mods.str.includes("NC")) {
+    //     return;
+    // }
 
     // CHECKER FOR MAPPICK & MODS (TO RECALCULATE STATS)
     if (beatmaps.includes(id)) {
@@ -84,9 +84,9 @@ async function updateDetails(data) {
             let ar_ms = Math.max(Math.min(memoryAR <= 5 ? 1800 - 120 * memoryAR : 1200 - 150 * (memoryAR - 5), 1800), 450) / 1.5;
             memoryAR = ar_ms > 1200 ? ((1800 - ar_ms) / 120).toFixed(2) : (5 + (1200 - ar_ms) / 150).toFixed(1);
         
-            min = Math.round(min * 1.5);
-            max = Math.round(max * 1.5);
-            full = Math.round(full/1.5);
+            // min = Math.round(min * 1.5);
+            // max = Math.round(max * 1.5);
+            // full = Math.round(full/1.5);
         
             fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
         }
@@ -98,18 +98,18 @@ async function updateDetails(data) {
             memoryOD = Math.min(memoryOD*1.4, 10).toFixed(1);
             memoryCS = Math.min(memoryCS*1.3, 10).toFixed(1);
             memoryAR = Math.min(memoryAR*1.4, 10).toFixed(1);
-            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
+            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["modSR"];
         } else if (mod == "DT") {
             // thanks schdewz
             memoryOD = Math.min((79.5 - (Math.min(79.5, Math.max(19.5, 79.5 - Math.ceil(6 * memoryOD))) / 1.5)) / 6, 1.5 > 1.5 ? 12 : 11).toFixed(1);
             let ar_ms = Math.max(Math.min(memoryAR <= 5 ? 1800 - 120 * memoryAR : 1200 - 150 * (memoryAR - 5), 1800), 450) / 1.5;
             memoryAR = ar_ms > 1200 ? ((1800 - ar_ms) / 120).toFixed(2) : (5 + (1200 - ar_ms) / 150).toFixed(1);
         
-            min = Math.round(min * 1.5);
-            max = Math.round(max * 1.5);
-            full = Math.round(full/1.5);
+            // min = Math.round(min * 1.5);
+            // max = Math.round(max * 1.5);
+            // full = Math.round(full/1.5);
         
-            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === id)["modSR"];
+            fullSR = beatmapSet.find(beatmap => beatmap["beatmapId"] === file)["modSR"];
         }
     }
     pickID.innerHTML = pick == null ? "XX1" : pick;
@@ -119,8 +119,8 @@ async function updateDetails(data) {
     beatmapDiff.innerHTML = difficulty;
     beatmapMapper.innerHTML = customMapper != "" ? customMapper:mapper;
     mapOD.innerHTML = memoryOD;
-    // mapAR.innerHTML = memoryAR;
-    // mapCS.innerHTML = memoryCS;
+    mapAR.innerHTML = memoryAR;
+    mapCS.innerHTML = memoryCS;
     mapSR.innerHTML = fullSR;
     mapBPM.innerHTML = min === max ? min : `${min}-${max}`;
     mapLength.innerHTML = parseTime(full);
