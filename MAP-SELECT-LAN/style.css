@@ -1,0 +1,250 @@
+@font-face {
+    font-family: "Unbounded";
+    src: url("../_shared_assets/fonts/Unbounded.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-Light";
+    src: url("../_shared_assets/fonts/Unbounded-Light.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-SemiBold";
+    src: url("../_shared_assets/fonts/Unbounded-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Unbounded-ExtraBold";
+    src: url("../_shared_assets/fonts/Unbounded-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "ClimateCrisis";
+    src: url("../_shared_assets/fonts/ClimateCrisis.ttf");
+}
+
+#main {
+    width:1920px;
+    height:1080px;
+    position: absolute;
+    top:0px;
+    left:0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+}
+
+#mappoolContainer {
+    width:fit-content;
+    height: inherit;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+#playerOneColumn, #playerTwoColumn {
+    /* background-color:lightgrey; */
+    width:fit-content;
+    height: 350px;
+    margin-block:30px;
+    display:flex;
+    justify-content: start;
+}
+
+.ban {
+    height:350px;
+    width:200px;
+    background-image: url(../_shared_assets/design/ban.png);
+    margin-right:30px;
+    display:flex;
+    flex-direction: column-reverse;
+    transition:750ms ease-in-out;
+    transform: translateY(150px);
+    opacity: 0;
+}
+
+.pick {
+    height:350px;
+    width:200px;
+    background-image: url(../_shared_assets/design/pick.png);
+    margin-right:30px;
+    display:flex;
+    flex-direction: column-reverse;
+    transition:750ms ease-in-out;
+    transform: translateY(150px);
+    opacity: 0;
+}
+
+.tiebreaker {
+    height: 760px;
+    width:200px;
+    background-image: url(../_shared_assets/design/tb.png);
+    position:relative;
+    top:0px;
+    display:flex;
+    flex-direction: column-reverse;
+    transition:750ms ease-in-out;
+    transform: translateY(150px);
+    opacity: 0;
+}
+
+.pickid {
+    height:50px;
+    width:inherit;
+    font-family: "Unbounded-ExtraBold";
+    font-size:47px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.bgContainer {
+    height:250px;
+    width:inherit;
+    display:flex;
+}
+
+.frame {
+    height:inherit;
+    width:inherit;
+    background-color: #5e3f51;
+    opacity: 0.5;
+    z-index:2;
+}
+
+.bg {
+    height:inherit;
+    width:inherit;
+    position:absolute;
+    z-index:1;
+    /* background-image: url(https://cdn.discordapp.com/attachments/793324125723820086/1258095045207261305/image.png?ex=6692a951&is=669157d1&hm=855e5debe92aec7f4e56ae829b6f26e7bb8b58d44f729d77cf091ad600870e2a&); */
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+.bgContainertb {
+    height:660px;
+    width:inherit;
+    display:flex;
+}
+
+.frametb {
+    height:inherit;
+    width:inherit;
+    background-color: #5e3f51;
+    opacity: 0.5;
+    z-index:2;
+}
+
+.bgtb {
+    height:inherit;
+    width:inherit;
+    position:absolute;
+    z-index:1;
+    /* background-image: url(https://cdn.discordapp.com/attachments/793324125723820086/1258095045207261305/image.png?ex=6692a951&is=669157d1&hm=855e5debe92aec7f4e56ae829b6f26e7bb8b58d44f729d77cf091ad600870e2a&); */
+    background-size: auto 100%;
+    background-position: center center;
+}
+
+.winContainer {
+    background-color:rgba(0,0,0,0.5);
+    height: 350px;
+    width:200px;
+    position:absolute;
+    z-index:3;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-family: "Unbounded-ExtraBold";
+    font-size:24px;
+    opacity: 0;
+    transition: 500ms ease-in-out;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align:center;
+}
+
+.winnerName {
+    font-family: "Unbounded-SemiBold";
+}
+
+.winContainertb {
+    background-color:rgba(0,0,0,0.5);
+    height: 760px;
+    width:200px;
+    position:absolute;
+    z-index:3;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-family: "Unbounded-ExtraBold";
+    font-size:24px;
+    opacity: 0;
+    transition: 500ms ease-in-out;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.winnerNametb {
+    font-family: "Unbounded-SemiBold";
+}
+
+@keyframes pick {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.95);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+#controlPanel {
+    width:1920px;
+    height:250px;
+    position:absolute;
+    top:1080px;
+    left:0px;
+    background-color: grey;
+    display:flex;
+    font-family: "Unbounded-SemiBold";
+    align-items: center;
+    color:white;
+    font-size:24px;
+}
+
+#revealButton {
+    background-color: red;
+    width:300px;
+    height:200px;
+    margin-inline: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#autoButton {
+    background:#007A14;
+    color:white;
+    width:400px;
+    height:175px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-inline: 25px;
+    transition: 250ms ease-in-out;
+}

@@ -1,62 +1,50 @@
 [
-    {
-      "playerID": 15271985,
-      "Seed": 1
-    },
-    {
-      "playerID": 16436446,
-      "Seed": 2
-    },
-    {
-      "playerID": 11918602,
-      "Seed": 3
-    },
-    {
-      "playerID": 8226107,
-      "Seed": 4
-    },
-    {
-      "playerID": 3995630,
-      "Seed": 5
-    },
-    {
-      "playerID": 10343292,
-      "Seed": 6
-    },
-    {
-      "playerID": 22437223,
-      "Seed": 7
-    },
-    {
-      "playerID": 5585377,
-      "Seed": 8
-    },
-    {
-      "playerID": 5034270,
-      "Seed": 1
-    },
-    {
-      "playerID": 12382410,
-      "Seed": 2
-    },
-    {
-      "playerID": 9434933,
-      "Seed": 3
-    },
-    {
-      "playerID": 4101818,
-      "Seed": 4
-    },
-    {
-      "playerID": 10826368,
-      "Seed": 5
-    },
-    {
-      "playerID": 9351030,
-      "Seed": 6
-    },
-    {
-      "playerID": 11621976,
-      "Seed": 7
-    }
-  ]
+  {
+    "playerID": 15271985,
+    "Seed": 1
+  },
+  {
+    "playerID": 16436446,
+    "Seed": 2
+  },
+  {
+    "playerID": 8226107,
+    "Seed": 4
+  },
+  {
+    "playerID": 5034270,
+    "Seed": 1
+  },
+  {
+    "playerID": 12382410,
+    "Seed": 2
+  },
+  {
+    "playerID": 4101818,
+    "Seed": 4
+  },
+  {
+    "playerID": 15231510,
+    "Seed": 1
+  },
+  {
+    "playerID": 15019527,
+    "Seed": 2
+  },
+  {
+    "playerID": 12086753,
+    "Seed": 3
+  },
+  {
+    "playerID": 13382147,
+    "Seed": 1
+  },
+  {
+    "playerID": 3760209,
+    "Seed": 2
+  },
+  {
+    "playerID": 26882713,
+    "Seed": 6
+  }
+]
